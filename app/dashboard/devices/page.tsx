@@ -6,8 +6,10 @@ import { fetchDevices } from '@/lib/api';
 import DeviceList from '@/components/DeviceList';
 import DeviceDetailsModal from '@/components/DeviceDetailsModal';
 import AddDeviceForm from '@/components/AddDeviceForm';
+import { useAuth } from '@/lib/useAuth';
 
 export default function DevicesDashboard() {
+  const { isAuthenticated, isLoading: authLoading, logout } = useAuth();
   const [devices, setDevices] = useState<Device[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
@@ -15,11 +17,9 @@ export default function DevicesDashboard() {
   const [statusFilter, setStatusFilter] = useState<DeviceStatus | 'all'>('all');
   const [showAddForm, setShowAddForm] = useState(false);
 
-  useEffect(() => {
-    loadDevices();
-  }, []);
-
   const loadDevices = async () => {
+    if (!isAuthenticated) return;
+    
     setLoading(true);
     setError(null);
 
@@ -40,7 +40,7 @@ export default function DevicesDashboard() {
 
   useEffect(() => {
     loadDevices();
-  }, [statusFilter]);
+  }, [statusFilter, isAuthenticated]);
 
   const stats = {
     total: devices.length,
@@ -48,12 +48,35 @@ export default function DevicesDashboard() {
     offline: devices.filter((d) => d.status === 'offline').length,
   };
 
+  if (authLoading) {
+    return (
+      <div className="min-h-screen bg-gray-100 flex items-center justify-center">
+        <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600"></div>
+      </div>
+    );
+  }
+
+  if (!isAuthenticated) {
+    return null;
+  }
+
   return (
     <div className="min-h-screen bg-gray-100">
       <div className="container mx-auto px-4 py-8">
-        <div className="mb-8">
-          <h1 className="text-4xl font-bold text-gray-800 mb-2">Device Status Dashboard</h1>
-          <p className="text-gray-600">Monitor and manage your laboratory devices</p>
+        <div className="mb-8 flex justify-between items-start">
+          <div>
+            <h1 className="text-4xl font-bold text-gray-800 mb-2">Device Status Dashboard</h1>
+            <p className="text-gray-600">Monitor and manage your laboratory devices</p>
+          </div>
+          <button
+            onClick={logout}
+            className="px-4 py-2 bg-red-600 text-white rounded-md hover:bg-red-700 transition-colors flex items-center gap-2"
+          >
+            <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1" />
+            </svg>
+            Logout
+          </button>
         </div>
 
         {/* Stats Cards */}

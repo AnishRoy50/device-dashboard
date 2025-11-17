@@ -226,6 +226,11 @@ GET /api/devices/:uuid/data
 
 ##  Additional Features
 
+### 🔐 Basic Authentication
+- Login system with hardcoded credentials
+- Protected dashboard routes
+- Session management with localStorage
+- Logout functionality
 
 ### 📊 Data Visualization
 - Beautiful interactive line charts with **Recharts**
@@ -264,25 +269,46 @@ GET /api/devices/:uuid/data
 
 ## 🧪 Testing the Application
 
+### 🔐 Authentication
+
+The application now includes basic authentication. Use these credentials to log in:
+
+**Demo Credentials:**
+- Username: `admin`
+- Password: `admin123`
+
+**Alternative:**
+- Username: `user`
+- Password: `user123`
+
 ### Quick Test Guide
 
-1. **Register a Device** 📝
+1. **Sign In** 🔑
+   - Navigate to the login page
+   - Enter demo credentials
+   - Click "Sign In"
+
+2. **Register a Device** 📝
    - Fill out the form on the right sidebar
    - Click "Register Device"
    - Watch it appear instantly in the list
 
-2. **Filter Devices** 🔍
+3. **Filter Devices** 🔍
    - Use the filter buttons: All, Online, Offline
    - Observe real-time statistics update
 
-3. **View Device Details** 👁️
+4. **View Device Details** 👁️
    - Click any device row
    - Explore test results and charts
    - Refresh data with the refresh button
 
-4. **Update Status** 🔄
+5. **Update Status** 🔄
    - Click "Set Online/Offline" buttons
    - See optimistic UI updates
+
+6. **Logout** 🚪
+   - Click the "Logout" button in the top right
+   - Redirects to login page
 
 
 

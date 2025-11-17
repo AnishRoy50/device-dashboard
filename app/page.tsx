@@ -15,10 +15,10 @@ export default function Home() {
 
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
           <Link
-            href="/dashboard/devices"
+            href="/login"
             className="px-8 py-4 bg-blue-600 text-white text-lg font-semibold rounded-lg hover:bg-blue-700 transition-colors shadow-lg hover:shadow-xl"
           >
-            Go to Dashboard
+            Sign In
           </Link>
           <a
             href="https://github.com/AnishRoy50/device-dashboard/tree/main"
