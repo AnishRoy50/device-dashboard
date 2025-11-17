@@ -1,196 +1,309 @@
-# Device Status Dashboard
+<div align="center">
 
-A full-stack device monitoring dashboard built with Next.js, React, TypeScript, and Tailwind CSS.
+# 🏥 Device Status Dashboard
 
-## Features
+[![Next.js](https://img.shields.io/badge/Next.js-15-black?style=for-the-badge&logo=next.js)](https://nextjs.org/)
+[![TypeScript](https://img.shields.io/badge/TypeScript-5.0-blue?style=for-the-badge&logo=typescript)](https://www.typescriptlang.org/)
+[![Tailwind CSS](https://img.shields.io/badge/Tailwind-3.0-38B2AC?style=for-the-badge&logo=tailwind-css)](https://tailwindcss.com/)
+[![React](https://img.shields.io/badge/React-19-61DAFB?style=for-the-badge&logo=react)](https://reactjs.org/)
 
-### Backend API (Next.js)
-- **POST /api/devices/register** - Register new devices with validation
-- **GET /api/devices** - Retrieve all devices with optional status filtering
-- **PATCH /api/devices/:uuid/status** - Update device status
-- **GET /api/devices/:uuid/data** - Get mock laboratory test results
+A full-stack device monitoring dashboard for laboratory equipment built with modern web technologies.
 
-### Frontend Dashboard
-- **Device List** - View all devices with real-time status indicators
-- **Status Filtering** - Filter devices by online/offline status
-- **Device Details Modal** - View detailed device information and test results
-- **Add Device Form** - Register new devices with form validation
-- **Data Visualization** - Interactive charts showing test result trends
-- **Responsive Design** - Works on desktop and mobile devices
+[Features](#-features) •
+[Installation](#-getting-started) •
+[API](#-api-reference)
 
-### Code Quality
--  TypeScript with proper type definitions
--  React Hook Form + Zod for form validation
--  Tailwind CSS for styling
--  Loading and error state handling
--  Clean, readable code structure
--  In-memory data storage (no database required)
 
-## Tech Stack
 
-- **Framework:** Next.js 15 (App Router)
-- **Language:** TypeScript
-- **Styling:** Tailwind CSS
-- **Form Management:** React Hook Form
-- **Validation:** Zod
-- **Charts:** Recharts
-- **ID Generation:** UUID
+</div>
 
-## Getting Started
+---
+
+## 🎬 Demo
+
+> **Live Demo:** Coming Soon! Deploy your own version with one click using the buttons below.
+
+### Key Highlights
+
+- 🎯 **Real-time Monitoring** - Track device status instantly
+- 📊 **Interactive Charts** - Visualize test result trends
+- 📱 **Fully Responsive** - Works seamlessly on all devices
+- ⚡ **Lightning Fast** - Built with Next.js 15 and React 19
+- 🔒 **Secure** - Following industry best practices
+
+---
+
+## ✨ Features
+
+<table>
+<tr>
+<td width="50%">
+
+### 🔌 Backend API
+
+- ✅ **POST** `/api/devices/register` - Register devices
+- ✅ **GET** `/api/devices` - List all devices
+- ✅ **PATCH** `/api/devices/:uuid/status` - Update status
+- ✅ **GET** `/api/devices/:uuid/data` - Fetch test results
+- 🗄️ In-memory storage (no database needed)
+- ✔️ Full input validation with Zod
+
+</td>
+<td width="50%">
+
+### 🎨 Frontend Dashboard
+
+- 📊 Real-time device monitoring
+- 🎯 Status filtering (Online/Offline)
+- 📈 Interactive data visualization
+- 📱 Fully responsive design
+- 🔄 Optimistic UI updates
+- ⚡ Fast and intuitive interface
+
+</td>
+</tr>
+</table>
+
+### 💎 Code Quality
+
+- 🔷 **TypeScript** - Full type safety
+- 📝 **React Hook Form** - Efficient form management
+- 🎨 **Tailwind CSS** - Modern utility-first styling
+- ✨ **Zod** - Runtime schema validation
+- 🔄 **Loading States** - Smooth user experience
+- 🛡️ **Error Handling** - Graceful error management
+
+## 🛠️ Tech Stack
+
+<table>
+<tr>
+<td align="center" width="96">
+<img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nextjs/nextjs-original.svg" width="48" height="48" alt="Next.js" />
+<br>Next.js 15
+</td>
+<td align="center" width="96">
+<img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg" width="48" height="48" alt="TypeScript" />
+<br>TypeScript
+</td>
+<td align="center" width="96">
+<img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" width="48" height="48" alt="React" />
+<br>React 19
+</td>
+<td align="center" width="96">
+<img src="https://www.vectorlogo.zone/logos/tailwindcss/tailwindcss-icon.svg" width="48" height="48" alt="Tailwind" />
+<br>Tailwind CSS
+</td>
+<td align="center" width="96">
+
+</td>
+</tr>
+</table>
+
+## 🚀 Getting Started
 
 ### Prerequisites
-- Node.js 18+ installed
-- npm or yarn package manager
+
+Before you begin, ensure you have the following installed:
+- **Node.js** 18.0 or higher
+- **npm** or **yarn** package manager
 
 ### Installation
 
-1. Navigate to the project directory:
+1️⃣ **Clone the repository**
 ```bash
+git clone https://github.com/AnishRoy50/device-dashboard.git
 cd device-dashboard
 ```
 
-2. Install dependencies (already done):
+2️⃣ **Install dependencies**
 ```bash
 npm install
 ```
 
-3. Run the development server:
+3️⃣ **Run the development server**
 ```bash
 npm run dev
 ```
 
-4. Open [http://localhost:3000](http://localhost:3000) in your browser
+4️⃣ **Open your browser**
 
-## Project Structure
+Navigate to [http://localhost:3000](http://localhost:3000) 
+
+## 📁 Project Structure
 
 ```
-device-dashboard/
-├── app/
-│   ├── api/
-│   │   └── devices/
-│   │       ├── register/route.ts    # POST register device
-│   │       ├── route.ts             # GET all devices
-│   │       └── [uuid]/
-│   │           ├── status/route.ts  # PATCH update status
-│   │           └── data/route.ts    # GET test results
-│   ├── dashboard/
-│   │   └── devices/
-│   │       └── page.tsx             # Main dashboard page
-│   └── page.tsx                     # Home page
-├── components/
-│   ├── AddDeviceForm.tsx            # Device registration form
-│   ├── DeviceList.tsx               # Device list table
-│   └── DeviceDetailsModal.tsx       # Device details modal
-├── lib/
-│   ├── types.ts                     # TypeScript types & Zod schemas
-│   ├── store.ts                     # In-memory device storage
-│   └── api.ts                       # API client functions
-└── README.md
+📦 device-dashboard
+ ┣ 📂 app
+ ┃ ┣ 📂 api
+ ┃ ┃ ┗ 📂 devices
+ ┃ ┃   ┣ 📂 [uuid]
+ ┃ ┃   ┃ ┣ 📂 data
+ ┃ ┃   ┃ ┃ ┗ 📜 route.ts           # GET test results
+ ┃ ┃   ┃ ┗ 📂 status
+ ┃ ┃   ┃   ┗ 📜 route.ts           # PATCH update status
+ ┃ ┃   ┣ 📂 register
+ ┃ ┃   ┃ ┗ 📜 route.ts             # POST register device
+ ┃ ┃   ┗ 📜 route.ts               # GET all devices
+ ┃ ┣ 📂 dashboard
+ ┃ ┃ ┗ 📂 devices
+ ┃ ┃   ┗ 📜 page.tsx               # Main dashboard
+ ┃ ┣ 📜 globals.css
+ ┃ ┣ 📜 layout.tsx
+ ┃ ┗ 📜 page.tsx                   # Landing page
+ ┣ 📂 components
+ ┃ ┣ 📜 AddDeviceForm.tsx          # Device registration
+ ┃ ┣ 📜 DeviceDetailsModal.tsx     # Device details modal
+ ┃ ┗ 📜 DeviceList.tsx              # Device list table
+ ┣ 📂 lib
+ ┃ ┣ 📜 api.ts                     # API client
+ ┃ ┣ 📜 store.ts                   # In-memory storage
+ ┃ ┗ 📜 types.ts                   # TypeScript types
+ ┗ 📜 README.md
 ```
 
-## API Endpoints
+## 📡 API Reference
 
-### 1. Register Device
-```
+### Register Device
+
+```http
 POST /api/devices/register
-Content-Type: application/json
+```
 
+**Request Body:**
+```json
 {
   "deviceId": "DEV-001",
   "deviceName": "Blood Analyzer Pro",
   "deviceType": "Laboratory Equipment",
   "status": "online"
 }
-
-Response: 201 Created
 ```
 
-### 2. Get All Devices
-```
+**Response:** `201 Created`
+
+---
+
+### Get All Devices
+
+```http
 GET /api/devices
 GET /api/devices?status=online
 GET /api/devices?status=offline
 ```
 
-### 3. Update Device Status
-```
-PATCH /api/devices/:uuid/status
-Content-Type: application/json
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `status` | `string` | **Optional**. Filter by `online` or `offline` |
 
+**Response:** `200 OK`
+
+---
+
+### Update Device Status
+
+```http
+PATCH /api/devices/:uuid/status
+```
+
+**Request Body:**
+```json
 {
   "status": "offline"
 }
 ```
 
-### 4. Get Device Test Results
-```
+**Response:** `200 OK`
+
+---
+
+### Get Device Test Results
+
+```http
 GET /api/devices/:uuid/data
 ```
 
-## Bonus Features Implemented
+**Response:** `200 OK` - Returns 5-10 mock test results
 
-###  Chart Visualization
-- Interactive line charts showing test result trends over time
-- Uses Recharts library for data visualization
+##  Additional Features
 
-### Optimistic Updates
-- Device status updates provide immediate visual feedback
-- Loading states during API calls
 
-###  Security Considerations
+### 📊 Data Visualization
+- Beautiful interactive line charts with **Recharts**
+- Real-time trend analysis
+- Hover tooltips for detailed data points
 
-**Device-to-Server Communication Security:**
+### ⚡ Optimistic Updates
+- Instant UI feedback on actions
+- Smooth loading states
+- Automatic rollback on errors
 
-1. **Authentication & Authorization**
-   - Implement JWT tokens or API keys for device authentication
-   - Use OAuth 2.0 for user authentication
-   - Role-based access control (RBAC)
+### 🔒 Security Best Practices
+<details>
+<summary>Click to expand security overview</summary>
 
-2. **Transport Security**
-   - Enforce HTTPS/TLS for all communications
-   - Use certificate pinning for mobile/IoT devices
-   - Implement mutual TLS (mTLS)
+- 🔐 **Authentication & Authorization** - JWT, OAuth 2.0, RBAC
+- 🔒 **Transport Security** - HTTPS/TLS, mTLS, Certificate pinning
+- 💾 **Data Security** - AES-256 encryption, data sanitization
+- 🛡️ **API Security** - Rate limiting, CORS, input validation
+- 🔑 **Device Security** - Registration verification, token rotation
 
-3. **Data Security**
-   - Encrypt sensitive data at rest and in transit
-   - Use AES-256 for data encryption
-   - Implement data sanitization and validation
-
-4. **API Security**
-   - Rate limiting to prevent abuse
-   - CORS configuration for allowed origins
-   - Input validation and sanitization
-   - XSS protection through proper output encoding
-
-5. **Device Security**
-   - Device registration with verification
-   - Unique device identifiers
-   - Regular security token rotation
+</details>
 
 
 
-### Deploy to Railway
+## 💻 Development
 
-1. Create account at [Railway.app](https://railway.app)
-2. Create new project from GitHub repo
-3. Deploy automatically
+### Available Scripts
 
-## Development Commands
+| Command | Description |
+|---------|-------------|
+| `npm run dev` | Start development server on port 3000 |
+| `npm run build` | Build optimized production bundle |
+| `npm start` | Start production server |
+| `npm run lint` | Run ESLint for code quality |
 
-```bash
-npm run dev      # Start development server
-npm run build    # Build for production
-npm run start    # Start production server
-npm run lint     # Run ESLint
-```
+## 🧪 Testing the Application
 
-## Testing the Application
+### Quick Test Guide
 
-1. **Register a Device** - Use the form on the right
-2. **Filter Devices** - Click "All", "Online", "Offline"
-3. **View Details** - Click any device row
-4. **Update Status** - Click "Set Online/Offline" buttons
+1. **Register a Device** 📝
+   - Fill out the form on the right sidebar
+   - Click "Register Device"
+   - Watch it appear instantly in the list
 
-## License
+2. **Filter Devices** 🔍
+   - Use the filter buttons: All, Online, Offline
+   - Observe real-time statistics update
 
-MIT
+3. **View Device Details** 👁️
+   - Click any device row
+   - Explore test results and charts
+   - Refresh data with the refresh button
+
+4. **Update Status** 🔄
+   - Click "Set Online/Offline" buttons
+   - See optimistic UI updates
+
+
+
+
+
+
+## 📝 License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+## 👨‍💻 Author
+
+**Anish Roy**
+
+- GitHub: [@AnishRoy50](https://github.com/AnishRoy50)
+
+
+<div align="center">
+
+Made with ❤️ using Next.js and TypeScript
+
+[⬆ Back to Top](#-device-status-dashboard)
+
+</div>
