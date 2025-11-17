@@ -21,7 +21,7 @@ export default function Home() {
             Go to Dashboard
           </Link>
           <a
-            href="https://github.com"
+            href="https://github.com/AnishRoy50/device-dashboard/tree/main"
             target="_blank"
             rel="noopener noreferrer"
             className="px-8 py-4 bg-white text-gray-800 text-lg font-semibold rounded-lg hover:bg-gray-50 transition-colors shadow-lg hover:shadow-xl border border-gray-200"
