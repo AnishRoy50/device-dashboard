@@ -21,7 +21,7 @@ A full-stack device monitoring dashboard for laboratory equipment built with mod
 
 ## 🎬 Demo
 
-> **Live Demo:** Coming Soon! Deploy your own version with one click using the buttons below.
+> **Live Demo:** (https://devicedashboard2.netlify.app/)
 
 ### Key Highlights
 
